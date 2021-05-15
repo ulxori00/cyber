@@ -47,11 +47,7 @@ class SubWindow(QDialog):
     def browse_key(self):
         self.key_path = QFileDialog.getOpenFileName(self, 'Open file')[0]
         self.key_line.setText(self.key_path)
-
-    def browse_key(self):
-        self.key_path = QFileDialog.getOpenFileName(self, 'Open file')[0]
-        self.key_line.setText(self.key_path)
-
+    
 
     def goto_main_window(self):
         self.error.setText("")
