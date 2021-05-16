@@ -6,6 +6,7 @@ MAIN_WINDOW = 0
 ENCRYPTION_WINDOW = 1
 DECRYPTION_WINDOW = 2
 
+
 class MainWindow(QDialog):
 
     def __init__(self):
@@ -21,7 +22,7 @@ class MainWindow(QDialog):
 
     def show_decryption_window(self):
         widget.setCurrentIndex(DECRYPTION_WINDOW)
-        
+
 
 class SubWindow(QDialog):
 
@@ -47,7 +48,7 @@ class SubWindow(QDialog):
     def browse_key(self):
         self.key_path = QFileDialog.getOpenFileName(self, 'Open file')[0]
         self.key_line.setText(self.key_path)
-    
+
 
     def goto_main_window(self):
         self.error.setText("")
