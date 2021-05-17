@@ -509,7 +509,7 @@ int tableSollution(tree_node_t* rootA, tree_node_t* rootB, int size)
 				*(tab + n) = (int*)malloc(sizeA * sizeof(int));
 			}
 
-			// Pobranie wartoĹ›ci dla tabeli 
+			// Pobranie wartoÄąâ€şci dla tabeli 
 			
 			tree_node_t* p = A->child;
 			for (int m = 0; m < sizeA; m++)
