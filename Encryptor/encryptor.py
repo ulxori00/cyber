@@ -7,12 +7,7 @@ from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 from Crypto.Cipher import PKCS1_OAEP
 
-KEY_LENGTH = 2048
-DEFAULT_PUBLIC_PATH = "../Generate/public.pem"
-DEFAULT_PRIVATE_PATH = "../Generate/private.pem"
-DEFAULT_META = "../meta.txt"
-
-
+''' Nieużywane funkcje '''
 def bytesToString(key_bytes):
     string = ""
     for byte in key_bytes:
@@ -45,9 +40,10 @@ def getMetaPath(path: str, file: str):
 
     path = path_base + "meta/" + file_name + "_meta.txt"
     return path
+''' Ale zostawiam z sentymentu '''
 
 
-def SymmetricEncode(meta_path, data, public_key):
+def SymmetricEncode(data, public_key):
     d = bytes(data, 'utf-8')
     session_key = get_random_bytes(16)
     cipher = AES.new(session_key, AES.MODE_CTR)
@@ -59,22 +55,19 @@ def SymmetricEncode(meta_path, data, public_key):
     cipher_rsa = PKCS1_OAEP.new(public_key)
     enc_key = cipher_rsa.encrypt(session_key)
 
-    result = json.dumps({'nonce': nonce, 'key': bytesToString(enc_key)})
+    #result = json.dumps({'nonce': nonce, 'key': bytesToString(enc_key)})
+    result = json.dumps({'nonce': nonce, 'key': b64encode(enc_key).decode('utf-8')})
 
-    file = open(meta_path, "wb")
-    file.write(bytes(result, 'utf-8'))
-    file.close()
-    return ct
+    return ct, result
 
 
-def SymmetricDecode(meta_path, data, private_key):
-    f = open(meta_path, 'r')
-    json_input = f.readline()
-    b64 = json.loads(json_input)
+def SymmetricDecode(meta, data, private_key):
+    b64 = json.loads(meta)
 
     nonce = b64decode(b64['nonce'])
     enc_key = b64['key']
-    enc_key = stringToBytes(enc_key)
+    #enc_key = stringToBytes(enc_key)
+    enc_key = b64decode(enc_key)
 
     cipher_rsa = PKCS1_OAEP.new(private_key)
     session_key = cipher_rsa.decrypt(enc_key)
@@ -97,10 +90,12 @@ def Encryption(file_path, public_key_path):
     for line in lines:
         data += line
 
-    meta_path = getMetaPath(public_key_path, file_path)
-    encrypted = SymmetricEncode(meta_path, data, public_key)
+    encrypted, meta = SymmetricEncode(data, public_key)
 
-    file = open(file_path, "wb")
+    new_file = file_path + ".cr"
+
+    file = open(new_file, "wb")
+    file.write(bytes(meta + "\n", 'utf-8'))
     file.write(bytes(encrypted, 'utf-8'))
     file.close()
 
@@ -112,16 +107,14 @@ def Decryption(file_path, private_key_path):
     print()
 
     file = open(file_path, 'r')
-    data = ""
-    lines = file.readlines()
-    for line in lines:
-        data += line
+    meta = file.readline()
+    data = file.readline()
 
-    meta_path = getMetaPath(private_key_path, file_path)
-    decrypted = SymmetricDecode(meta_path, data, private_key)
+    decrypted = SymmetricDecode(meta, data, private_key)
 
-    file = open(file_path, "wb")
+    decrypted_file = file_path[:file_path.rindex('.')]
+
+    file = open(decrypted_file, "wb")
     file.write(decrypted)
     file.close()
 
-    os.remove(meta_path)

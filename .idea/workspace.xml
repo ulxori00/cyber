@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a02d9598-62aa-4546-a57e-466e1eab1ea7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generate/private.pem" beforeDir="false" afterPath="$PROJECT_DIR$/Generate/private.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Generate/public.pem" beforeDir="false" afterPath="$PROJECT_DIR$/Generate/public.pem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Encryptor/encryptor.py" beforeDir="false" afterPath="$PROJECT_DIR$/Encryptor/encryptor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
