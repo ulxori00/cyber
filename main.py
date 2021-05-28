@@ -5,7 +5,7 @@ HEIGHT = 480
 MAIN_WINDOW = 0
 ENCRYPTION_WINDOW = 1
 DECRYPTION_WINDOW = 2
-
+PK_PATH = "PublicKeys/"
 
 class MainWindow(QDialog):
 
@@ -37,7 +37,10 @@ class SubWindow(QDialog):
         self.file_path = ""
         self.key_path = ""
         self.file_button.clicked.connect(self.browse_file)
-        self.key_button.clicked.connect(self.browse_key)
+        if func_name == 'decrypt':
+            self.key_button.clicked.connect(self.browse_key)
+        else:
+            print('hello')
         self.submit_button.clicked.connect(self.submit_button_clicked)
         self.arrow_button.clicked.connect(self.goto_main_window)
 
@@ -49,12 +52,20 @@ class SubWindow(QDialog):
         self.key_path = QFileDialog.getOpenFileName(self, 'Open file')[0]
         self.key_line.setText(self.key_path)
 
+    def load_public_keys(self, public_keys):
+        self.public_keys = public_keys
+        for key_owner in public_keys.keys():
+            self.comboBox.addItem(key_owner)
 
     def goto_main_window(self):
         self.error.setText("")
         widget.setCurrentIndex(MAIN_WINDOW)
 
     def submit_button_clicked(self):
+
+        if self.func_name =='encrypt':
+            self.key_path = self.public_keys[self.comboBox.currentText()]
+
         if len(self.key_path)==0 or len(self.file_path)==0:
             self.error.setText("Please input all fields")
         else:
@@ -64,7 +75,10 @@ class SubWindow(QDialog):
 
 
 
+
 #Main
+public_keys = load_public_keys(PK_PATH)
+
 app = QApplication(sys.argv)
 main_window = MainWindow()
 widget = QtWidgets.QStackedWidget()
@@ -74,7 +88,7 @@ widget.setFixedWidth(WIDTH)
 
 encryption_window = SubWindow()
 encryption_window.load("enryptionWindow.ui", 'encrypt')
-
+encryption_window.load_public_keys(public_keys)
 
 decryption_window = SubWindow()
 decryption_window.load("decryptionWindow.ui",'decrypt')

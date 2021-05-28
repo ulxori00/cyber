@@ -95,34 +95,6 @@ font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>Browse</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="key_button">
-    <property name="geometry">
-     <rect>
-      <x>520</x>
-      <y>300</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius:10px;
-font: 16pt &quot;MS Shell Dlg 2&quot;;
-background-color: rgb(219, 212, 255);</string>
-    </property>
-    <property name="text">
-     <string>Browse</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="key_line">
-    <property name="geometry">
-     <rect>
-      <x>220</x>
-      <y>300</y>
-      <width>291</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="file_line">
     <property name="geometry">
      <rect>
@@ -184,6 +156,16 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>300</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
     </property>
    </widget>
   </widget>
