@@ -31,7 +31,7 @@ background-color:qlineargradient(spread:pad, x1:0.051, y1:0.0568182, x2:0.926136
      <rect>
       <x>10</x>
       <y>50</y>
-      <width>311</width>
+      <width>401</width>
       <height>151</height>
      </rect>
     </property>
@@ -48,7 +48,7 @@ font: 54pt &quot;MS Shell Dlg 2&quot;;</string>
      <rect>
       <x>30</x>
       <y>180</y>
-      <width>241</width>
+      <width>361</width>
       <height>81</height>
      </rect>
     </property>
@@ -65,7 +65,7 @@ color:rgb(0, 0, 0);</string>
      <rect>
       <x>80</x>
       <y>230</y>
-      <width>161</width>
+      <width>201</width>
       <height>81</height>
      </rect>
     </property>

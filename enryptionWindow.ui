@@ -31,7 +31,7 @@ background-color:qlineargradient(spread:pad, x1:0.051, y1:0.0568182, x2:0.926136
      <rect>
       <x>90</x>
       <y>0</y>
-      <width>461</width>
+      <width>551</width>
       <height>141</height>
      </rect>
     </property>
@@ -48,7 +48,7 @@ font: 46pt &quot;MS Shell Dlg 2&quot;;</string>
      <rect>
       <x>0</x>
       <y>170</y>
-      <width>141</width>
+      <width>221</width>
       <height>81</height>
      </rect>
     </property>
@@ -64,9 +64,9 @@ color:rgb(0, 0, 0);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>270</y>
-      <width>241</width>
-      <height>81</height>
+      <y>230</y>
+      <width>291</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -80,9 +80,9 @@ font: 22pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QPushButton" name="file_button">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>580</x>
       <y>200</y>
-      <width>171</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -98,9 +98,9 @@ font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QLineEdit" name="file_line">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>300</x>
       <y>200</y>
-      <width>291</width>
+      <width>271</width>
       <height>31</height>
      </rect>
     </property>
@@ -108,9 +108,9 @@ font: 16pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QPushButton" name="submit_button">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>580</x>
       <y>350</y>
-      <width>171</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
@@ -161,9 +161,9 @@ font: 14pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>300</y>
-      <width>291</width>
+      <x>300</x>
+      <y>290</y>
+      <width>271</width>
       <height>31</height>
      </rect>
     </property>
